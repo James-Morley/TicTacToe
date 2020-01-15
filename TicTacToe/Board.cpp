@@ -53,14 +53,12 @@ const int& Board::operator [] (const int& index) const {
 
 std::ostream& operator << (std::ostream& os, const Board& board) {
 
-	for (int i = 0; i < board.getSize(); ++i) {
-		if (i % board.getRows() == 0) {
-			os << "\n";
-		} 
-		else {
-			int value = board[i];
-			os << value  << " ";
+	for (int i = 0; i < board.getRows(); i++) {
+		for (int j = 0; j < board.getCols(); j++) {
+			int index = i * 3 + j;
+			os << board[index] << " ";
 		}
+		os << "\n";
 	}
 	return os;
 }
