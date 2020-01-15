@@ -31,6 +31,14 @@ const int& Board::getSize() const {
 	return size;
 }
 
+void Board::setCols(const int& _cols) {
+	cols = _cols;
+}
+
+void Board::setRows(const int& _rows) {
+	rows = _rows;
+}
+
 //==========OVERLOADED OPERATORS==========
 
 int& Board::operator [] (const int& index)  {
@@ -50,7 +58,8 @@ std::ostream& operator << (std::ostream& os, const Board& board) {
 			os << "\n";
 		} 
 		else {
-			os << board[i] << " ";
+			int value = board[i];
+			os << value  << " ";
 		}
 	}
 	return os;

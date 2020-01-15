@@ -20,6 +20,9 @@ class Board {
 		const int& getRows() const;
 		const int& getSize() const;
 
+		void setCols(const int& cols);
+		void setRows(const int& rows);
+
 
 		//Overloaded operators
 		int& operator[] (const int& index);
