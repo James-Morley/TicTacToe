@@ -37,6 +37,16 @@ void Game::changePlayer() {
 	player1 = !player1;
 }
 
+int& Game::getIndexToPlacembol() const {
+	int index = -1;
+
+	while (index < 0 || index >= board.getSize()) {
+		std::cin >> index;
+	}
+
+	return index;
+}
+
 const std::string& Game::getPlayerSymbol() {
 	return (player1 == true) ? Game::X : Game::O;
 }
@@ -54,15 +64,17 @@ void Game::playGame() {
 
 		std::string symbol = Game::getPlayerSymbol();
 
+		int index = getIndexToPlacembol();
+
+		board.addElem(symbol, index);
 
 		if (board.checkDiagonal(symbol) || board.checkHorizontal(symbol) || board.checkVertical(symbol)) {
 			std::cout << "GAMEOVER!" << std::endl;
 			gameover = true;
 		}
 		
-		player1 = !player1;
-		//NEED TO GET THE POSTION WHERE THE PLAYER WOULD LIKE TO 
-		//PLACE THEIR SYMBOL IN THE ARRAY
+		std::cout << board << std::endl;
 
+		changePlayer();
 	}
 }

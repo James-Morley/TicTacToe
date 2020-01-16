@@ -28,7 +28,10 @@ class Game {
 		const Board& getBoard() const;
 		const bool& getPlayer() const;
 
+		//Miscelaneous functions
 		void changePlayer();
+
+		int& getIndexToPlacembol() const;
 
 		const std::string& getPlayerSymbol();
 
