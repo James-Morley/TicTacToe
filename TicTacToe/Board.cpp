@@ -2,10 +2,6 @@
 #include "Board.h"
 #include <string>
 
-//==========INITIALISE STATIC MEMBERS==========
-const std::string Board::X = "X";
-const std::string Board::O = "O";
-
 //==========CONSTRUCTORS==========
 
 Board::Board() {
@@ -58,6 +54,7 @@ void Board::setRows(const int& _rows) {
 
 //COPY CONSTRUCTOR
 Board::Board(const Board& board) {
+
 	rows = board.getRows();
 	cols = board.getCols();
 	size = board.getSize();

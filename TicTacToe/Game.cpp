@@ -3,13 +3,17 @@
 #include "Board.h"
 #include <iostream>
 
-Game::Game() {
-	std::cout << "IN DEFAULT CONSTRUCTOR" << std::endl;
-}
+//==========INITIALISE STATIC MEMBERS==========
+
+const std::string Game::X = "X";
+const std::string Game::O = "O";
+
+//==========CONSTRUCTORS==========
+Game::Game() {}
 
 Game::Game(const Board& _board) {
 	player1 = true;
-	gameover = true;
+	gameover = false;
 	board = _board;
 }
 
@@ -33,12 +37,32 @@ void Game::changePlayer() {
 	player1 = !player1;
 }
 
-void Game::playGame() {
-	if (player1) {
-		std::cout << "PLAYER 1'S TURN" << std::endl;
-	}
-	else {
-		std::cout << "PLAYER 2'S TURN" << std::endl;
-	}
+const std::string& Game::getPlayerSymbol() {
+	return (player1 == true) ? Game::X : Game::O;
+}
 
+void Game::playGame() {
+	
+	while (!gameover) {
+
+		if (player1) {
+			std::cout << "PLAYER 1'S TURN" << std::endl;
+		}
+		else {
+			std::cout << "PLAYER 2'S TURN" << std::endl;
+		}
+
+		std::string symbol = Game::getPlayerSymbol();
+
+
+		if (board.checkDiagonal(symbol) || board.checkHorizontal(symbol) || board.checkVertical(symbol)) {
+			std::cout << "GAMEOVER!" << std::endl;
+			gameover = true;
+		}
+		
+		player1 = !player1;
+		//NEED TO GET THE POSTION WHERE THE PLAYER WOULD LIKE TO 
+		//PLACE THEIR SYMBOL IN THE ARRAY
+
+	}
 }

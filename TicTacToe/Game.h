@@ -6,6 +6,10 @@
 
 class Game {
 
+	//Initialise static members
+	static const std::string X;
+	static const std::string O;
+
 	private:
 		Board board;
 
@@ -25,6 +29,8 @@ class Game {
 		const bool& getPlayer() const;
 
 		void changePlayer();
+
+		const std::string& getPlayerSymbol();
 
 		void playGame();
 

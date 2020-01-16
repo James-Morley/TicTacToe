@@ -8,9 +8,6 @@ class Board {
 
 	private:
 
-		static const std::string X;
-		static const std::string O;
-
 		int rows;
 		int cols;
 		int size;
@@ -38,7 +35,7 @@ class Board {
 
 		//Add element
 		void addElem(const std::string& symbol, const int& index);
-		
+
 		//Board validation
 		bool checkHorizontal(const std::string& symbol) const;
 		bool checkVertical(const std::string& symbol) const;
