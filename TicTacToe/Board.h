@@ -6,7 +6,7 @@ class Board {
 		int rows;
 		int cols;
 		int size;
-		int* array;
+		std::string* array;
 
 	public:
 		//Constructors
@@ -23,11 +23,13 @@ class Board {
 		void setCols(const int& cols);
 		void setRows(const int& rows);
 
+		void addElem(const std::string& symbol, const int& index);
+
 
 		//Overloaded operators
-		int& operator[] (const int& index);
+		std::string& operator[] (const int& index);
 
-		const int& operator [] (const int& index) const ;
+		const std::string& operator [] (const int& index) const ;
 
 		//friend operators
 		friend std::ostream& operator << (std::ostream& os, const Board& board);

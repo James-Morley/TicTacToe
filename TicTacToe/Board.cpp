@@ -1,14 +1,20 @@
 #include "pch.h"
 #include "Board.h"
+#include <string>
 
 #ifndef BOARD
 #define BOARD
+
+//==========CONSTRUCTORS==========
 
 Board::Board(const int& _rows, const int& _cols) {
 	rows = _rows;
 	cols = _cols;
 	size = _rows * _cols;
-	array = new int[rows * cols];
+	array = new std::string[rows * cols];
+
+	for (int i = 0; i < size; i++) { array[i] = "HELLO "; }
+
 }
 
 //==========DESTRUCTORS==========
@@ -39,20 +45,31 @@ void Board::setRows(const int& _rows) {
 	rows = _rows;
 }
 
+
+//==========ADD AN ELEMENT==========
+
+void Board::addElem(const std::string& symbol, const int& index) {
+	if (index >= 0 && index <= size - 1) {
+		array[index] = symbol;
+	}
+	else {
+		std::cout << "CAN'T ADD SYMBOL: " << symbol << " AT INDEX: " << index << std::endl;
+	}
+}
+
 //==========OVERLOADED OPERATORS==========
 
-int& Board::operator [] (const int& index)  {
+std::string& Board::operator [] (const int& index)  {
 	return array[index];
 }
 
-const int& Board::operator [] (const int& index) const {
+const std::string& Board::operator [] (const int& index) const {
 	return array[index];
 }
 
 //==========FRIEND OPERATORS==========
 
 std::ostream& operator << (std::ostream& os, const Board& board) {
-
 	for (int i = 0; i < board.getRows(); i++) {
 		for (int j = 0; j < board.getCols(); j++) {
 			int index = i * 3 + j;
