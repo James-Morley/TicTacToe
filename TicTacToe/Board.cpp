@@ -110,6 +110,7 @@ void Board::addElem(const std::string& symbol, const int& index) {
 		else if (array[index] == "X" || array[index] == "O") {
 
 			std::cout << "CAN'T ADD SYMBOL TO A CELL THAT ALREADY HAS A SYMBOL" << std::endl;
+			break;
 
 		}
 		else {

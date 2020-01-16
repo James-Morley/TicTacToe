@@ -64,12 +64,24 @@ void Game::playGame() {
 
 		std::string symbol = Game::getPlayerSymbol();
 
+		std::cout << "PLEASE ENTER THE POSITION WHERE YOU WOULD LIKE TO ADD THE POSITION: ";
 		int index = getIndexToPlacembol();
+
+		while (index < 0 || index >= board.getSize() || board[index] == Game::X || board[index] == Game::O) {
+			std::cout << "THE POSITION IS EITHER INVALID OR HAS ANOTHER SYMBOL IN IT: ";
+			index = getIndexToPlacembol();
+			std::cout << "\n";
+		}
 
 		board.addElem(symbol, index);
 
 		if (board.checkDiagonal(symbol) || board.checkHorizontal(symbol) || board.checkVertical(symbol)) {
-			std::cout << "GAMEOVER!" << std::endl;
+			std::cout << "GAMEOVER!";
+
+			std::string winner = (player1) ? " PLAYER 1 HAS WON" : " PLAYER 1 HAS WON";
+
+			std::cout << winner << std::endl;
+
 			gameover = true;
 		}
 		

@@ -29,6 +29,7 @@ class Game {
 		const bool& getPlayer() const;
 
 		//Miscelaneous functions
+
 		void changePlayer();
 
 		int& getIndexToPlacembol() const;
