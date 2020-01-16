@@ -10,6 +10,7 @@ class Game {
 		Board board;
 
 		bool player1;
+		bool gameover;
 
 	public:
 		

@@ -9,11 +9,11 @@ Game::Game() {
 
 Game::Game(const Board& _board) {
 	player1 = true;
-	//board = _board;
+	gameover = true;
+	board = _board;
 }
 
 Game::~Game() {
-	std::cout << "IN DESTRUCTOR" << std::endl;
 }
 
 //==========GETTERS AND SETTERS==========
@@ -34,5 +34,11 @@ void Game::changePlayer() {
 }
 
 void Game::playGame() {
+	if (player1) {
+		std::cout << "PLAYER 1'S TURN" << std::endl;
+	}
+	else {
+		std::cout << "PLAYER 2'S TURN" << std::endl;
+	}
 
 }

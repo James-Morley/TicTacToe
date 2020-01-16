@@ -32,6 +32,11 @@ class Board {
 		void setCols(const int& cols);
 		void setRows(const int& rows);
 
+		//RAII
+		Board(const Board& board); //COPY CONSTRUCTOR
+		Board& operator = (const Board& other); //COPY ASSIGNMENT CONSTRUCTOR
+
+		//Add element
 		void addElem(const std::string& symbol, const int& index);
 		
 		//Board validation

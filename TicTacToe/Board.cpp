@@ -54,6 +54,43 @@ void Board::setRows(const int& _rows) {
 	rows = _rows;
 }
 
+//==========RAII==========
+
+//COPY CONSTRUCTOR
+Board::Board(const Board& board) {
+	rows = board.getRows();
+	cols = board.getCols();
+	size = board.getSize();
+
+	array = new std::string[size];
+
+	for (int i = 0; i < board.getSize(); i++) {
+		array[i] = board[i];
+	}
+}
+
+//COPY ASSIGNMENT CONSTRUCTOR
+Board& Board::operator=(const Board& other) {
+
+	if (this != &other) {
+
+		delete[] array;
+		array = nullptr;
+
+		rows = other.getRows();
+		cols = other.getCols();
+		size = other.getSize();
+		
+		array = new std::string[size];
+
+		for (int i = 0; i < size; i++) {
+			array[i] = other[i];
+		}
+
+	}
+	return *this;
+}
+
 
 //==========ADD AN ELEMENT==========
 
