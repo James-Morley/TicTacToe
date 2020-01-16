@@ -1,6 +1,9 @@
 #include "iostream"
 #include <string>
 
+#ifndef BOARD
+#define BOARD
+
 class Board {
 
 	private:
@@ -30,7 +33,11 @@ class Board {
 		void setRows(const int& rows);
 
 		void addElem(const std::string& symbol, const int& index);
-
+		
+		//Board validation
+		bool checkHorizontal(const std::string& symbol) const;
+		bool checkVertical(const std::string& symbol) const;
+		bool checkDiagonal(const std::string& symbol) const;
 
 		//Overloaded operators
 		std::string& operator[] (const int& index);
@@ -41,3 +48,5 @@ class Board {
 		friend std::ostream& operator << (std::ostream& os, const Board& board);
 
 };
+
+#endif // !BOARD

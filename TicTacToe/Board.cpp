@@ -2,10 +2,6 @@
 #include "Board.h"
 #include <string>
 
-#ifndef BOARD
-#define BOARD
-
-
 //==========INITIALISE STATIC MEMBERS==========
 const std::string Board::X = "X";
 const std::string Board::O = "O";
@@ -33,6 +29,7 @@ Board::Board(const int& _rows, const int& _cols) {
 
 Board::~Board() {
 	delete[] array;
+	array = nullptr;
 }
 
 //==========GETTERS AND SETTERS==========
@@ -90,6 +87,39 @@ void Board::addElem(const std::string& symbol, const int& index) {
 	}
 }
 
+//==========BOARD VALIDATION==========
+
+bool Board::checkHorizontal(const std::string& symbol) const {
+
+	bool top = array[0] == symbol && array[1] == symbol && array[2] == symbol;
+
+	bool middle = array[3] == symbol && array[4] == symbol && array[5] == symbol;
+
+	bool bottom = array[6] == symbol && array[7] == symbol && array[8] == symbol;
+
+	return top || middle || bottom;
+}
+
+bool Board::checkVertical(const std::string& symbol) const {
+
+	bool left = array[0] == symbol && array[3] == symbol && array[6] == symbol;
+
+	bool middle = array[1] == symbol && array[4] == symbol && array[7] == symbol;
+
+	bool right = array[2] == symbol && array[5] == symbol && array[8] == symbol;
+
+	return left || middle || right;
+}
+
+bool Board::checkDiagonal(const std::string& symbol) const {
+
+	bool topLeftToBotRight = array[0] == symbol && array[4] == symbol && array[8] == symbol;
+
+	bool topRightToBotLeft = array[2] == symbol && array[4] == symbol && array[6] == symbol;
+
+	return topLeftToBotRight || topRightToBotLeft;
+}
+
 //==========OVERLOADED OPERATORS==========
 
 std::string& Board::operator [] (const int& index)  {
@@ -112,5 +142,3 @@ std::ostream& operator << (std::ostream& os, const Board& board) {
 	}
 	return os;
 }
-
-#endif // !BOARD
