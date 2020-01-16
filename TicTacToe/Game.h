@@ -6,6 +6,20 @@
 
 class Game {
 
+	private:
+		Board board;
+
+		bool player1;
+
+	public:
+		
+
+		Game(const Board& board);
+
+		const bool& getPlayer() const;
+
+		void changePlayer();
+
 };
 
 #endif // !GAME

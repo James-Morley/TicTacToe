@@ -12,6 +12,12 @@ const std::string Board::O = "O";
 
 //==========CONSTRUCTORS==========
 
+Board::Board() {
+	rows = 0;
+	cols = 0;
+	size = 0;
+}
+
 Board::Board(const int& _rows, const int& _cols) {
 
 	rows = _rows;

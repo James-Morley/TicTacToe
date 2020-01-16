@@ -15,6 +15,7 @@ class Board {
 
 	public:
 		//Constructors
+		Board();
 		Board(const int& rows, const int& cols);
 
 		//Destructors
@@ -38,7 +39,5 @@ class Board {
 
 		//friend operators
 		friend std::ostream& operator << (std::ostream& os, const Board& board);
-
-
 
 };
