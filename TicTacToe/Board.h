@@ -1,8 +1,13 @@
 #include "iostream"
+#include <string>
 
 class Board {
 
 	private:
+
+		static const std::string X;
+		static const std::string O;
+
 		int rows;
 		int cols;
 		int size;

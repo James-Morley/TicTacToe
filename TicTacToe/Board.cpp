@@ -5,15 +5,22 @@
 #ifndef BOARD
 #define BOARD
 
+
+//==========INITIALISE STATIC MEMBERS==========
+const std::string Board::X = "X";
+const std::string Board::O = "O";
+
+
 //==========CONSTRUCTORS==========
 
 Board::Board(const int& _rows, const int& _cols) {
+
 	rows = _rows;
 	cols = _cols;
 	size = _rows * _cols;
 	array = new std::string[rows * cols];
 
-	for (int i = 0; i < size; i++) { array[i] = "HELLO "; }
+	for (int i = 0; i < size; i++) { array[i] = std::to_string(i); }
 
 }
 
@@ -49,12 +56,31 @@ void Board::setRows(const int& _rows) {
 //==========ADD AN ELEMENT==========
 
 void Board::addElem(const std::string& symbol, const int& index) {
-	if (index >= 0 && index <= size - 1) {
+
+	bool valid = false;
+
+	while (!valid) {
+
+		if (index < 0) {
+
+			std::cout << "INDEX VALUE CAN'T BE NEGATIVE" << std::endl;
+
+		}
+		else if (index >= size ) {
+
+			std::cout << "INDEX VALUE CAN'T BE GRETER THAN ARRAY SIZE" << std::endl;
+
+		}
+
+	}
+
+
+	/*if (index >= 0 && index <= size - 1) {
 		array[index] = symbol;
 	}
 	else {
 		std::cout << "CAN'T ADD SYMBOL: " << symbol << " AT INDEX: " << index << std::endl;
-	}
+	}*/
 }
 
 //==========OVERLOADED OPERATORS==========
