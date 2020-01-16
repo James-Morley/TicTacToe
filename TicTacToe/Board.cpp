@@ -77,10 +77,10 @@ void Board::addElem(const std::string& symbol, const int& index) {
 		}
 		else {
 
+			std::cout << "GREAT SUCCES!" << std::endl;
 			array[index] = symbol;
 			valid = true;
 		}
-
 	}
 }
 
