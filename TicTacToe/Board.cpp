@@ -10,7 +10,6 @@
 const std::string Board::X = "X";
 const std::string Board::O = "O";
 
-
 //==========CONSTRUCTORS==========
 
 Board::Board(const int& _rows, const int& _cols) {
@@ -71,16 +70,18 @@ void Board::addElem(const std::string& symbol, const int& index) {
 			std::cout << "INDEX VALUE CAN'T BE GRETER THAN ARRAY SIZE" << std::endl;
 
 		}
+		else if (array[index] == "X" || array[index] == "O") {
+
+			std::cout << "CAN'T ADD SYMBOL TO A CELL THAT ALREADY HAS A SYMBOL" << std::endl;
+
+		}
+		else {
+
+			array[index] = symbol;
+			valid = true;
+		}
 
 	}
-
-
-	/*if (index >= 0 && index <= size - 1) {
-		array[index] = symbol;
-	}
-	else {
-		std::cout << "CAN'T ADD SYMBOL: " << symbol << " AT INDEX: " << index << std::endl;
-	}*/
 }
 
 //==========OVERLOADED OPERATORS==========
