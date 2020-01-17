@@ -17,8 +17,9 @@ Game::Game(const Board& _board) {
 	board = _board;
 }
 
-Game::~Game() {
-}
+//==========DESTRUCTOR==========
+
+Game::~Game() {}
 
 //==========GETTERS AND SETTERS==========
 
@@ -29,7 +30,6 @@ const Board& Game::getBoard() const {
 const bool& Game::getPlayer() const {
 	return player1;
 }
-
 
 //==========MISCELANEOUS FUNCIONS==========
 
@@ -53,7 +53,6 @@ int& Game::getIndexToPlacembol() const {
 	while (index < 0 || index >= board.getSize()) {
 		std::cin >> index;
 	}
-
 	return index;
 }
 
@@ -83,18 +82,20 @@ void Game::playGame() {
 
 		std::cout << "PLEASE ENTER THE POSITION WHERE YOU WOULD LIKE TO ADD THE POSITION: ";
 		int index = getIndexToPlacembol();
-		std::cout << "\n";
+		std::cout << std::endl;
 
 
 		while (index < 0 || index >= board.getSize() || board[index] == Game::X || board[index] == Game::O) {
+
 			std::cout << "THE POSITION IS EITHER INVALID OR HAS ANOTHER SYMBOL IN IT: ";
 			index = getIndexToPlacembol();
-			std::cout << "\n";
+			std::cout << std::endl;
 		}
 
 		board.addElem(symbol, index);
 
 		if (board.checkDiagonal(symbol) || board.checkHorizontal(symbol) || board.checkVertical(symbol)) {
+
 			std::cout << "GAMEOVER!";
 
 			std::string winner = (player1) ? " PLAYER 1 HAS WON" : " PLAYER 1 HAS WON";

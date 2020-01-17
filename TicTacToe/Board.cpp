@@ -204,6 +204,5 @@ std::ostream& operator << (std::ostream& os, const Board& board) {
 				break;
 		}
 	}
-	os << std::endl;
 	return os;
 }
