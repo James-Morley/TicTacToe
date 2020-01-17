@@ -207,10 +207,3 @@ std::ostream& operator << (std::ostream& os, const Board& board) {
 	os << std::endl;
 	return os;
 }
-
-
-//==========HASHING OPERATOR==========
-
-std::size_t Board::operator () (const Board& board) const {
-	return 13;
-}

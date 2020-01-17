@@ -103,7 +103,7 @@ void Game::playGame() {
 
 			gameover = true;
 		}
-		
+		 
 		changePlayer();
 	}
 }

@@ -49,10 +49,6 @@ class Board {
 
 		//friend operators
 		friend std::ostream& operator << (std::ostream& os, const Board& board);
-
-		//Hashing function
-		std::size_t operator () (const Board& board) const;
-
 };
 
 #endif // !BOARD
