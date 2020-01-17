@@ -27,6 +27,7 @@ class Game {
 		const bool& getPlayer() const;
 
 		//Miscelaneous functions
+		bool isDraw();
 		void changePlayer();
 		int& getIndexToPlacembol() const;
 		const std::string& getPlayerSymbol();

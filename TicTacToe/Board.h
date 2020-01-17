@@ -34,6 +34,7 @@ class Board {
 		Board& operator = (const Board& other); //COPY ASSIGNMENT CONSTRUCTOR
 
 		//Add element
+		bool checkPositionIsEmpty(const int& index) const;
 		void addElem(const std::string& symbol, const int& index);
 
 		//Board validation
@@ -48,6 +49,9 @@ class Board {
 
 		//friend operators
 		friend std::ostream& operator << (std::ostream& os, const Board& board);
+
+		//Hashing function
+		std::size_t operator () (const Board& board) const;
 
 };
 

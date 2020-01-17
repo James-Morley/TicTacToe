@@ -87,6 +87,11 @@ Board& Board::operator=(const Board& other) {
 	return *this;
 }
 
+//==========CHECK POSITION==========
+
+bool Board::checkPositionIsEmpty(const int& i) const { //Returns true if the array at the given index is empty
+	return !(array[i] == "X" || array[i] == "O");
+}
 
 //==========ADD AN ELEMENT==========
 
@@ -167,13 +172,17 @@ const std::string& Board::operator [] (const int& index) const {
 
 std::ostream& operator << (std::ostream& os, const Board& board) {
 
-	std::string bar = " i |";
-	std::string end = " i ";
 	std::string line = "-----------";
 
 	os << line << "\n";
 
 	for (int i = 0; i < board.getSize(); i++) {
+
+		std::string temp = (board.array[i] == "X" || board.array[i] == "O") ? board.array[i] : std::to_string(i);
+
+		std::string bar = " " + temp + " |";
+		std::string end = " " + temp + " ";
+
 		switch (i) {
 			case 0: os << bar;
 				break;
@@ -197,4 +206,11 @@ std::ostream& operator << (std::ostream& os, const Board& board) {
 	}
 	os << std::endl;
 	return os;
+}
+
+
+//==========HASHING OPERATOR==========
+
+std::size_t Board::operator () (const Board& board) const {
+	return 13;
 }

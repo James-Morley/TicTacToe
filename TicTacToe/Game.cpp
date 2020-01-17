@@ -33,6 +33,16 @@ const bool& Game::getPlayer() const {
 
 //==========MISCELANEOUS FUNCIONS==========
 
+bool Game::isDraw() {
+	int cnt = 0;
+	for (int i = 0; i < board.getSize(); i++) {
+		if (board[i] == X || board[i] == O) {
+			cnt++;
+		}
+	}
+	return cnt == board.getSize() - 1;
+}
+
 void Game::changePlayer() {
 	player1 = !player1;
 }
@@ -54,6 +64,11 @@ const std::string& Game::getPlayerSymbol() {
 void Game::playGame() {
 	
 	while (!gameover) {
+
+		if (isDraw()) {
+			std::cout << "THE GAME HAS ENDED IN A DRAW!" << std::endl;
+			gameover = !gameover;
+		}
 
 		if (player1) {
 			std::cout << "PLAYER 1'S TURN" << std::endl;
