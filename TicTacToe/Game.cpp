@@ -62,10 +62,14 @@ void Game::playGame() {
 			std::cout << "PLAYER 2'S TURN" << std::endl;
 		}
 
+		std::cout << board << std::endl;
+
 		std::string symbol = Game::getPlayerSymbol();
 
 		std::cout << "PLEASE ENTER THE POSITION WHERE YOU WOULD LIKE TO ADD THE POSITION: ";
 		int index = getIndexToPlacembol();
+		std::cout << "\n";
+
 
 		while (index < 0 || index >= board.getSize() || board[index] == Game::X || board[index] == Game::O) {
 			std::cout << "THE POSITION IS EITHER INVALID OR HAS ANOTHER SYMBOL IN IT: ";
@@ -85,8 +89,6 @@ void Game::playGame() {
 			gameover = true;
 		}
 		
-		std::cout << board << std::endl;
-
 		changePlayer();
 	}
 }

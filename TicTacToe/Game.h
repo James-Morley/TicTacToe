@@ -12,7 +12,6 @@ class Game {
 
 	private:
 		Board board;
-
 		bool player1;
 		bool gameover;
 
@@ -21,7 +20,6 @@ class Game {
 		//Constructors
 		Game();
 		Game(const Board& board);
-
 		~Game();
 
 		//Getters and setters
@@ -29,13 +27,9 @@ class Game {
 		const bool& getPlayer() const;
 
 		//Miscelaneous functions
-
 		void changePlayer();
-
 		int& getIndexToPlacembol() const;
-
 		const std::string& getPlayerSymbol();
-
 		void playGame();
 
 };
