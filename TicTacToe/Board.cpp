@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "Board.h"
+#include <iostream>
 #include <string>
 
 //==========CONSTRUCTORS==========
-
 Board::Board() {
 	rows = 0;
 	cols = 0;
